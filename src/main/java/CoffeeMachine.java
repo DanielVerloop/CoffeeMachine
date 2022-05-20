@@ -34,4 +34,11 @@ public class CoffeeMachine {
             throw new IllegalStateException("No coffee beans left!");
         }
     }
+
+    public void makeCappuccino() {
+        if (getCoffeeBeans() > 0 && getMilk() > 0) {
+            this.milk--;
+            this.coffeeBeans--;
+        }
+    }
 }
