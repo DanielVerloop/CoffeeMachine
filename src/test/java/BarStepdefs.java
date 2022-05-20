@@ -6,9 +6,9 @@ import io.cucumber.java.en.When;
 public class BarStepdefs {
     Bar bar;
 
-    @Given("there is a bar with a coffee machine")
+    @Given("there is a bar")
     public void thereIsABarWithACoffeeMachine() {
-        bar = new Bar(new CoffeeMachine());
+        bar = new Bar();
     }
 
     @And("the coffee machine contains {int} beans and {int} milk")
@@ -21,12 +21,12 @@ public class BarStepdefs {
         bar.orderCoffee();
     }
 
-    @And("there are {int} beans left in the machine at the bar")
+    @And("the machine at the bar contains {int} beans")
     public void thereAreBeansLeftInTheMachine(int arg0) {
         assert bar.getMachine().getCoffeeBeans() == arg0;
     }
 
-    @Then("there is {int} milk left in the machine at the bar")
+    @Then("the machine at the bar contains {int} milk")
     public void thereIsMilkLeftInTheMachine(int arg0) {
         assert bar.getMachine().getMilk() == arg0;
     }
@@ -35,4 +35,5 @@ public class BarStepdefs {
     public void theClientCanStillOrderAnotherCoffee() {
         assert bar.askForCoffee();
     }
+
 }

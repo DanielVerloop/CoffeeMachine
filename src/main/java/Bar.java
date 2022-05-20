@@ -1,11 +1,11 @@
 public class Bar {
     private CoffeeMachine machine;
 
+    public Bar() {}
 
     public Bar(CoffeeMachine machine) {
         this.machine = machine;
     }
-
 
     public CoffeeMachine getMachine() {
         return machine;
@@ -22,5 +22,13 @@ public class Bar {
     public void orderCoffee() {
         this.machine.makeCoffee();
     }
+
+    public void orderCappuccino() {
+        this.machine.makeCappuccino();
+    }
+
+    //IDEAS:
+    // add payments
+    // add different machines/drinks
 
 }
