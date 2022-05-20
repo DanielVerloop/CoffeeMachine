@@ -3,7 +3,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class MyStepdefs {
+public class CoffeeMachineStepdefs {
     CoffeeMachine machine;
 
     @Given("we have a coffee machine with {int} beans and {int} milk")
@@ -16,10 +16,6 @@ public class MyStepdefs {
         machine.makeCoffee();
     }
 
-    @Then("There are {int} beans left in the machine")
-    public void thereAreBeansLeft(int arg0) {
-        assert machine.getCoffeeBeans() == arg0;
-    }
 
     @Given("we have a coffee machine without milk or beans")
     public void weHaveACoffeeMachineWithoutMilkOrBeans() {
@@ -36,9 +32,6 @@ public class MyStepdefs {
         machine.setMilk(arg0);
     }
 
-    @Then("there are {int} beans left in the machine")
-    public void thereAreBeansLeftInTheMachine(int arg0) {
-    }
 
     @When("we make a cup of coffee")
     public void weMakeACupOfCoffee() {
@@ -50,8 +43,13 @@ public class MyStepdefs {
         machine.makeCappuccino();
     }
 
-    @And("there is {int} milk left in the machine")
-    public void thereIsMilkLeftInTheMachine(int arg0) {
+    @Then("the machine contains {int} beans")
+    public void theMachineContainsBeans(int arg0) {
+        assert machine.getCoffeeBeans() == arg0;
+    }
+
+    @And("the machine contains {int} milk")
+    public void theMachineContainsMilk(int arg0) {
         assert machine.getMilk() == arg0;
     }
 }
