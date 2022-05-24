@@ -1,34 +1,63 @@
+//IDEAS:
+// add payments
+// add different machines/drinks
+
 public class Bar {
-    private CoffeeMachine machine;
+    private CoffeeMachine coffeeMachine;
+    private SodaMachine sodaMachine;
 
     public Bar() {}
 
     public Bar(CoffeeMachine machine) {
-        this.machine = machine;
+        this.coffeeMachine = machine;
     }
 
-    public CoffeeMachine getMachine() {
-        return machine;
+    public Bar(SodaMachine sodaMachine) {
+        this.sodaMachine = sodaMachine;
     }
 
-    public void setMachine(CoffeeMachine machine) {
-        this.machine = machine;
+    public Bar(SodaMachine sodaMachine, CoffeeMachine coffeeMachine) {
+        this.coffeeMachine = coffeeMachine;
+        this.sodaMachine = sodaMachine;
+    }
+
+    public CoffeeMachine getCoffeeMachine() {
+        return coffeeMachine;
+    }
+
+    public void setCoffeeMachine(CoffeeMachine coffeeMachine) {
+        this.coffeeMachine = coffeeMachine;
+    }
+
+    public SodaMachine getSodaMachine() {
+        return sodaMachine;
+    }
+
+    public void setSodaMachine(SodaMachine sodaMachine) {
+        this.sodaMachine = sodaMachine;
     }
 
     public boolean askForCoffee() {
-        return machine.getCoffeeBeans() > 0;
+        return coffeeMachine.getCoffeeBeans() > 0;
     }
 
     public void orderCoffee() {
-        this.machine.makeCoffee();
+        this.coffeeMachine.makeCoffee();
     }
 
     public void orderCappuccino() {
-        this.machine.makeCappuccino();
+        this.coffeeMachine.makeCappuccino();
     }
 
-    //IDEAS:
-    // add payments
-    // add different machines/drinks
+    public boolean askForSoda(String name) {
+        return sodaMachine.checkInventory(name);
+    }
 
+    public void orderSoda(String name) {
+        this.sodaMachine.serveDrink(name);
+    }
+
+    public void fillSodaMachine(String drink, double amount) {
+        this.sodaMachine.inputSoda(drink, amount);
+    }
 }

@@ -1,3 +1,4 @@
+@CoffeeMachineTests
 Feature: test if we can brew cups of coffee
 
   Scenario: set a basic cup of coffee
